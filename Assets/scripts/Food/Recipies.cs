@@ -5,25 +5,29 @@ using UnityEngine;
 public class Recipies : MonoBehaviour
 {
 
-   Dictionary<string, List<string>> ingredientToDishMap = new Dictionary<string, List<string>>()
+    Dictionary<string, List<string>> ingredientToDishMap = new Dictionary<string, List<string>>()
     {
         { "Pizza", new List<string> { "cutDough(Clone)", "cutTomato(Clone)"} },
         { "Steak", new List<string> { "cutMeat(Clone)", "cutMeat(Clone)"} },
-        { "Salad", new List<string> { "cutTomato(Clone)", "lettuce(Clone)" } },
+        { "Salad", new List<string> { "cutTomato(Clone)", "Lettuce(Clone)" } },
         // Add more ingredient-to-dish mappings as needed
     };
-    public void CheckDish(GameObject food1, GameObject food2)
+    public string CheckDish(GameObject food1, GameObject food2)
     {
-        Debug.Log(food1.name);
-        Debug.Log(food2.name);
+        
+        //Debug.Log(food1.name + " : " + food2.name);
         bool isMatch = false;
         string dishName = "";
 
         foreach (KeyValuePair<string, List<string>> kvp in ingredientToDishMap)
         {
             List<string> ingredients = kvp.Value;
+            //Debug.Log("Checking dish: " + kvp.Key);
+            //Debug.Log("Required ingredients: " + string.Join(", ", ingredients.ToArray()));
 
-            if (ingredients.Contains(food1.name) && ingredients.Contains(food2.name))
+            // Check all possible combinations of food1 and food2
+            if (ingredients.Contains(food1.name) && ingredients.Contains(food2.name) ||
+                ingredients.Contains(food2.name) && ingredients.Contains(food1.name))
             {
                 isMatch = true;
                 dishName = kvp.Key;
@@ -33,17 +37,17 @@ public class Recipies : MonoBehaviour
 
         if (isMatch)
         {
-            Debug.Log("The dish is: " + dishName);
+            Destroy(food1);
+            Destroy(food2);
+            return dishName;
+            //Debug.Log("The dish is: " + dishName);
         }
         else
         {
+            return dishName;
             Debug.Log("No dish matches the ingredient combination.");
         }
     }
 
-    private void InstantiatePizza()
-    {
-        // Instantiate a pizza GameObject here
-        Debug.Log("Pizza instantiated!");
-    }
+
 }

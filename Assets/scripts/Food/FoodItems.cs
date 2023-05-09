@@ -26,7 +26,6 @@ public class FoodItems : MonoBehaviour
 
         else if (selectedObject.GetComponent<Tomato>() != null)
             newFood = InstantiateFoodPrefab(3, parent);
-
         else
             Debug.Log("Nothing");
         newFood.transform.localPosition = new Vector3(0f, 0f, 0.4f);
@@ -55,6 +54,27 @@ public class FoodItems : MonoBehaviour
 
         Destroy(selectedObject);
         newFood.transform.localPosition = new Vector3(0f, 1.0f, 0f);
+        return newFood;
+    }
+
+    public GameObject BuildDish(string FoodObject, Transform parent)
+    {   
+        //Debug.Log(selectedObject.name);
+        GameObject newFood = null;
+
+        if (FoodObject == "Pizza")
+            newFood = InstantiateFoodPrefab(8, parent);
+
+        else if (FoodObject == "Steak")
+            newFood = InstantiateFoodPrefab(9, parent);
+
+        else if (FoodObject == "Salad")
+            newFood = InstantiateFoodPrefab(10, parent);
+
+        else
+            Debug.Log("Nothing");
+
+        newFood.transform.localPosition = new Vector3(0f, 0f, 0.4f);
         return newFood;
     }
 }

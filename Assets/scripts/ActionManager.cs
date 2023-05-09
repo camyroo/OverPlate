@@ -119,7 +119,6 @@ public class ActionManager : MonoBehaviour
 
     }
 
-
     void destroy()
     {
         Destroy(ObjectIWantToPickUp);
@@ -176,7 +175,12 @@ public class ActionManager : MonoBehaviour
         {
             if (player.pPickUp == true)
             {
-                recipie.CheckDish(ray._selection.transform.GetChild(0).gameObject, ObjectIWantToPickUp);
+                string dishName = recipie.CheckDish(ray._selection.transform.GetChild(0).gameObject, ObjectIWantToPickUp);
+                if(dishName != "") {
+                    destroy();
+                    ObjectIWantToPickUp = Food.BuildDish(dishName, player.transform);
+                    hasItem = true;
+                }
             }
         }
 
