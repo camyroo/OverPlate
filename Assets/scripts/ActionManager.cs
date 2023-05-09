@@ -24,6 +24,7 @@ public class ActionManager : MonoBehaviour
         player = GetComponent<PlayerController>();
         Food = FindObjectOfType<FoodItems>();
         recipie = FindObjectOfType<Recipies>();
+        score = FindObjectOfType<Score>();
         // Find the Raycast component on a child object named "Raycast"
         Transform raycastTransform = transform.Find("Raycast");
         if (raycastTransform != null)
@@ -101,9 +102,10 @@ public class ActionManager : MonoBehaviour
                 {
                     destroy();
                 }
-                if (ray._selection.gameObject.name == "GOAL")
+                if (ray._selection.gameObject.name == "GOAL" && ObjectIWantToPickUp.GetComponent<readyToBeServed>() != null)
                 {
                     destroy();
+                    score.IncreaseScore(5);
                     Debug.Log("INCREASE SCORE!");
                 }
                 else if (ray._selection.transform.childCount == 0 || ray._selection.gameObject.GetComponent<Appliance>() != null)
