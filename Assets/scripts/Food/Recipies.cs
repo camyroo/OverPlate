@@ -44,8 +44,8 @@ public class Recipies : MonoBehaviour
         }
         else
         {
-            return dishName;
             Debug.Log("No dish matches the ingredient combination.");
+            return dishName;
         }
     }
 
