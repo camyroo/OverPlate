@@ -11,3 +11,9 @@ Refining station - allows player to refine ingredients to make them suitible for
 Recipie System - allows player to combine items together to make dishes 
 
 finish rest later
+
+
+recipies:
+  pizza: cut pizza, cut tomato
+  salad: cut tomato, lettuce 
+  steak: cut meat x 2
