@@ -101,6 +101,7 @@ public class ActionManager : MonoBehaviour
                 if (ray._selection.gameObject.name == "Trash" && ObjectIWantToPickUp.CompareTag("Food"))
                 {
                     destroy();
+                    return;
                 }
                 if (ray._selection.gameObject.name == "GOAL" && ObjectIWantToPickUp.GetComponent<readyToBeServed>() != null)
                 {

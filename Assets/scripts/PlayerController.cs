@@ -99,34 +99,24 @@ public class PlayerController : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.started)
-        {
             pInteract = true;
-        }
 
         if (context.performed)
-        {
             pInteract = false;
-            
-        }
 
         if (context.canceled)
         {
             pInteract = false;
             ActionSlider.gameObject.SetActive(false);
-            
         }
     }
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
         if (context.performed)
-        {
             pPickUp = context.ReadValueAsButton();
-        }
         else if (context.canceled)
-        {
             pPickUp = context.ReadValueAsButton();
-        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)

@@ -10,11 +10,9 @@ public class Recipies : MonoBehaviour
         { "Pizza", new List<string> { "cutDough(Clone)", "cutTomato(Clone)"} },
         { "Steak", new List<string> { "cutMeat(Clone)", "cutMeat(Clone)"} },
         { "Salad", new List<string> { "cutTomato(Clone)", "Lettuce(Clone)" } },
-        // Add more ingredient-to-dish mappings as needed
     };
     public string CheckDish(GameObject food1, GameObject food2)
     {
-        
         //Debug.Log(food1.name + " : " + food2.name);
         bool isMatch = false;
         string dishName = "";
@@ -48,6 +46,4 @@ public class Recipies : MonoBehaviour
             return dishName;
         }
     }
-
-
 }
