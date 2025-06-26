@@ -1,6 +1,6 @@
 # OverPlate
 
-OverPlate is a local co-op cooking game made in Unity as a final project for CIS27 at Laney College. It is inspired by games like Overcooked! and PlateUp!
+OverPlate is a local co-op cooking game made in Unity as a custom final project for CIS27 at Laney College. It is inspired by games like Overcooked! and PlateUp!
 
 ## Features
 
@@ -23,5 +23,3 @@ Players move around the kitchen, interact with objects, and combine items using 
 - Improve graphics, animations, and sound
 - Add a title screen and level selection
 - Expand save data (e.g. player names)
-
-Developed at Laney College as a custom final project for Data Structures and Algorithms
